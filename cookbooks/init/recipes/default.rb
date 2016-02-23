@@ -39,3 +39,14 @@ package "aptitude" do
   action :install
 end
 
+service 'fail2ban' do
+    supports :status => true, :restart => true, :reload => true
+end
+
+template '/etc/fail2ban/jail.conf' do
+    source 'jail.conf.erb'
+    owner 'root'
+    group 'root'
+    mode '0644'
+    notifies :restart, 'service[fail2ban]', :immediately
+end
