@@ -124,7 +124,7 @@ port     = ssh
 filter   = sshd
 logpath  = /var/log/auth.log
 #maxretry = 6
-maxretry = <%= node['init']['maxretry'] %
+maxretry = <%= node['init']['maxretry'] %>
 
 [dropbear]
 
@@ -133,7 +133,7 @@ port     = ssh
 filter   = dropbear
 logpath  = /var/log/auth.log
 #maxretry = 6
-maxretry = <%= node['init']['maxretry'] %
+maxretry = <%= node['init']['maxretry'] %>
 
 # Generic filter for pam. Has to be used with action which bans all ports
 # such as iptables-allports, shorewall
@@ -148,7 +148,7 @@ banaction = iptables-allports
 port     = anyport
 logpath  = /var/log/auth.log
 #maxretry = 6
-maxretry = <%= node['init']['maxretry'] %
+maxretry = <%= node['init']['maxretry'] %>
 
 [xinetd-fail]
 
@@ -167,7 +167,7 @@ port     = ssh
 filter   = sshd-ddos
 logpath  = /var/log/auth.log
 #maxretry = 6
-maxretry = <%= node['init']['maxretry'] %
+maxretry = <%= node['init']['maxretry'] %>
 
 # Here we use blackhole routes for not requiring any additional kernel support
 # to store large volumes of banned IPs
@@ -179,7 +179,7 @@ filter = sshd
 action = route
 logpath = /var/log/sshd.log
 #maxretry = 6
-maxretry = <%= node['init']['maxretry'] %
+maxretry = <%= node['init']['maxretry'] %>
 
 # Here we use a combination of Netfilter/Iptables and IPsets
 # for storing large volumes of banned IPs
@@ -194,7 +194,7 @@ filter   = sshd
 banaction = iptables-ipset-proto4
 logpath  = /var/log/sshd.log
 #maxretry = 6
-maxretry = <%= node['init']['maxretry'] %
+maxretry = <%= node['init']['maxretry'] %>
 
 [ssh-iptables-ipset6]
 
@@ -204,7 +204,7 @@ filter   = sshd
 banaction = iptables-ipset-proto6
 logpath  = /var/log/sshd.log
 #maxretry = 6
-maxretry = <%= node['init']['maxretry'] %
+maxretry = <%= node['init']['maxretry'] %>
 
 #
 # HTTP servers
